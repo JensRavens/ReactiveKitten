@@ -1,0 +1,10 @@
+framework module Interstellar {
+  umbrella header "Interstellar.h"
+
+  export *
+  module * { export * }
+}
+
+module Interstellar.Swift {
+    header "Interstellar-Swift.h"
+}
