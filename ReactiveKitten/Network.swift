@@ -32,7 +32,7 @@ public final class Network {
     }
     
     private func parseGifs(array: [[String: AnyObject]]) -> Result<[Gif]> {
-        let gifs = self.compact(array.map { a in
+        let gifs = compact(array.map { a in
             Gif.parse(a)
             })
         return .Success(Box(gifs))
