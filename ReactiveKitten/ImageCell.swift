@@ -15,23 +15,38 @@ class ImageCell: UICollectionViewCell {
     
     static var imageCache = NSCache()
     
-    var url: NSURL? {
-        didSet {
-            imageView.image = nil
-            if let loadingUrl = url {
-                loadImageAsync(loadingUrl) { image in
-                    if loadingUrl == self.url {
-                        self.imageView.image = image.value
-                    }
-                }
-            }
+    let gifSignal = Signal<Gif>()
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        gifSignal.next { _ in
+            self.imageView.image = nil
+        }
+        
+        let imageSignal = gifSignal >>> getURL >>> Thread.background >>> loadFromCache >>> retryFromNetwork >>> Thread.main
+        imageSignal.next { image in
+            self.imageView.image = image
         }
     }
     
-    func loadImage(url: NSURL) -> Result<UIImage> {
+    private func getURL(gif: Gif)->Result<NSURL> {
+        return .Success(Box(gif.url))
+    }
+    
+    private func loadFromCache(url: NSURL)->Result<(UIImage?, NSURL)> {
         if let data = ImageCell.imageCache.objectForKey(url) as? NSData, image = UIImage(data: data) {
+            return .Success(Box((image as UIImage?, url)))
+        } else {
+            return .Success(Box((nil, url)))
+        }
+    }
+    
+    private func retryFromNetwork(image:(UIImage?, NSURL)) -> Result<UIImage>{
+        if let image = image.0 {
             return .Success(Box(image))
         } else {
+            let url = image.1
             if let data = NSData(contentsOfURL: url), image = UIImage(data: data) {
                 ImageCell.imageCache.setObject(data, forKey: url)
                 return .Success(Box(image))
@@ -41,15 +56,9 @@ class ImageCell: UICollectionViewCell {
         }
     }
     
-    func loadImageAsync(url: NSURL, completion: Result<UIImage> -> Void) {
-        let imageLoader = backgroundThread >>> loadImage >>> mainThread
-        imageLoader(url) { image in
-            if let image = image.value {
-                completion(.Success(Box(image)))
-            } else {
-                completion(.Error(NSError(domain: "Image not found", code: 404, userInfo: nil)))
-            }
-        }
+    func loadImageAsync(url: NSURL, completion: Result<UIImage>->Void) {
+        let process =  Thread.background |> loadFromCache |> retryFromNetwork |> Thread.main
+        process(.Success(Box(url)), completion)
     }
     
 }

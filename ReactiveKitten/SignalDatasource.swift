@@ -1,18 +1,6 @@
 import UIKit
 import Interstellar
 
-func mainThread<T>(a: T, completion: Result<T>->Void) {
-    dispatch_async(dispatch_get_main_queue()){
-        completion(Result.Success(Box(a)))
-    }
-}
-
-func backgroundThread<T>(a: T, completion: Result<T>->Void) {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
-        completion(Result.Success(Box(a)))
-    }
-}
-
 class SignalDatasource<T>: NSObject, Datasource {
     private let tableView: UITableView?
     private let collectionView: UICollectionView?
@@ -39,7 +27,7 @@ class SignalDatasource<T>: NSObject, Datasource {
     }
     
     func attachSignal(signal:Signal<[T]>){
-        self.signal = signal >>> mainThread
+        self.signal = signal >>> Thread.main
         self.tableView?.dataSource = bridge()
         self.collectionView?.dataSource = bridge()
         self.signal.subscribe { result in

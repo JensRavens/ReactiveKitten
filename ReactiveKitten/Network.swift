@@ -6,7 +6,7 @@ public final class Network {
     let session = NSURLSession.sharedSession()
     
     public func search()->(term: String, completion: Result<[Gif]>->Void)->Void {
-        return searchPath >>> request >>> parseJSON >>> processArray >>> parseGifs
+        return searchPath |> request |> parseJSON |> processArray |> parseGifs
     }
     
     private func request(path: String, completion: Result<NSData>->Void) {
