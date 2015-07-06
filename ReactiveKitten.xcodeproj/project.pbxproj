@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8F1848C01B08F0BF0028D0A0 /* Interstellar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1848BF1B08F0BF0028D0A0 /* Interstellar.framework */; };
-		8F1848C11B08F0CF0028D0A0 /* Interstellar.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8F1848BF1B08F0BF0028D0A0 /* Interstellar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F2B8D911B07B2910063EB9C /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B8D901B07B2910063EB9C /* Gif.swift */; };
 		8F2B8D931B07B3610063EB9C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B8D921B07B3610063EB9C /* Network.swift */; };
 		8F2B8D9A1B07C8480063EB9C /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B8D991B07C8480063EB9C /* DataSource.swift */; };
@@ -17,6 +15,8 @@
 		8F2B8DA71B07EB1E0063EB9C /* AnimatedGIFImageSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B8DA61B07EB1E0063EB9C /* AnimatedGIFImageSerialization.m */; };
 		8F2B8DA91B07F3100063EB9C /* UISearchBar+Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B8DA81B07F3100063EB9C /* UISearchBar+Signal.swift */; };
 		8F2B8DAB1B07F4800063EB9C /* GifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B8DAA1B07F4800063EB9C /* GifViewController.swift */; };
+		8F423B1D1B4AE0970084BAAC /* Interstellar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F423B1C1B4AE0970084BAAC /* Interstellar.framework */; };
+		8F423B1E1B4AE0A90084BAAC /* Interstellar.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8F423B1C1B4AE0970084BAAC /* Interstellar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F7E57871B07A54D006F7989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E57861B07A54D006F7989 /* AppDelegate.swift */; };
 		8F7E57891B07A54D006F7989 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E57881B07A54D006F7989 /* ViewController.swift */; };
 		8F7E578C1B07A54D006F7989 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F7E578A1B07A54D006F7989 /* Main.storyboard */; };
@@ -42,14 +42,13 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8F1848C11B08F0CF0028D0A0 /* Interstellar.framework in CopyFiles */,
+				8F423B1E1B4AE0A90084BAAC /* Interstellar.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8F1848BF1B08F0BF0028D0A0 /* Interstellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Interstellar.framework; sourceTree = "<group>"; };
 		8F2B8D901B07B2910063EB9C /* Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		8F2B8D921B07B3610063EB9C /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		8F2B8D991B07C8480063EB9C /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
@@ -60,6 +59,7 @@
 		8F2B8DA61B07EB1E0063EB9C /* AnimatedGIFImageSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedGIFImageSerialization.m; sourceTree = "<group>"; };
 		8F2B8DA81B07F3100063EB9C /* UISearchBar+Signal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Signal.swift"; sourceTree = "<group>"; };
 		8F2B8DAA1B07F4800063EB9C /* GifViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifViewController.swift; sourceTree = "<group>"; };
+		8F423B1C1B4AE0970084BAAC /* Interstellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Interstellar.framework; sourceTree = "<group>"; };
 		8F7E57811B07A54D006F7989 /* ReactiveKitten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveKitten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7E57851B07A54D006F7989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F7E57861B07A54D006F7989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F1848C01B08F0BF0028D0A0 /* Interstellar.framework in Frameworks */,
+				8F423B1D1B4AE0970084BAAC /* Interstellar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +140,7 @@
 		8F7E57841B07A54D006F7989 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8F1848BF1B08F0BF0028D0A0 /* Interstellar.framework */,
+				8F423B1C1B4AE0970084BAAC /* Interstellar.framework */,
 				8F7E578D1B07A54D006F7989 /* Images.xcassets */,
 				8F7E578F1B07A54D006F7989 /* LaunchScreen.xib */,
 				8F7E57861B07A54D006F7989 /* AppDelegate.swift */,
@@ -211,7 +211,8 @@
 		8F7E57791B07A54D006F7989 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "nerdgeschoss GmbH";
 				TargetAttributes = {
 					8F7E57801B07A54D006F7989 = {
@@ -339,6 +340,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -404,7 +406,6 @@
 		8F7E57A11B07A54D006F7989 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -415,6 +416,7 @@
 				);
 				INFOPLIST_FILE = ReactiveKitten/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.nerdgeschoss.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ReactiveKitten/ReactiveKitten-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -425,7 +427,6 @@
 		8F7E57A21B07A54D006F7989 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -436,6 +437,7 @@
 				);
 				INFOPLIST_FILE = ReactiveKitten/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.nerdgeschoss.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ReactiveKitten/ReactiveKitten-Bridging-Header.h";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -456,6 +458,7 @@
 				);
 				INFOPLIST_FILE = ReactiveKittenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.nerdgeschoss.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactiveKitten.app/ReactiveKitten";
 			};
@@ -471,6 +474,7 @@
 				);
 				INFOPLIST_FILE = ReactiveKittenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.nerdgeschoss.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactiveKitten.app/ReactiveKitten";
 			};

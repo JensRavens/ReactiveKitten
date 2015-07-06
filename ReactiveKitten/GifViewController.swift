@@ -28,7 +28,7 @@ public class GifViewController: UIViewController {
     
     @IBAction public func share() {
         cell.loadImageAsync(gif!.url) { image in
-            var items = NSMutableArray(object: image.value!)
+            let items = NSMutableArray(object: image.value!)
             if let caption = self.gif?.caption {
                 items.addObject(caption)
             }

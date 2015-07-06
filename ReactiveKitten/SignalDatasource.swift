@@ -27,7 +27,7 @@ class SignalDatasource<T>: NSObject, Datasource {
     }
     
     func attachSignal(signal:Signal<[T]>){
-        self.signal = signal >>> Thread.main
+        self.signal = signal.ensure(Thread.main)
         self.tableView?.dataSource = bridge()
         self.collectionView?.dataSource = bridge()
         self.signal.subscribe { result in
@@ -56,13 +56,13 @@ class SignalDatasource<T>: NSObject, Datasource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
         let object = itemForIndexPath(indexPath)!
         return tableCellGenerator!(object, cell)
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath)
         let object = itemForIndexPath(indexPath)!
         return collectionCellGenerator!(object, cell)
     }

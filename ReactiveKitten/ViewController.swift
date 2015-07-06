@@ -25,13 +25,13 @@ class ViewController: UIViewController {
         navigationItem.titleView = searchBar
         searchBar.keyboardAppearance = .Dark
         
-        signal = searchBar.textSignal >>> Network().search()
+        signal = searchBar.textSignal.bind(Network().search)
         
-        searchBar.textSignal.update(.Success(Box("kitten")))
+        searchBar.textSignal.update(.Success("kitten"))
         
         datasource = SignalDatasource(collectionView: collectionView, identifier: "Cell") { gif, cell in
             if let cell = cell as? ImageCell {
-                cell.gifSignal.update(.Success(Box(gif)))
+                cell.gifSignal.update(.Success(gif))
             }
             return cell
         }

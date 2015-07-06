@@ -11,7 +11,7 @@ extension UISearchBar: UISearchBarDelegate {
         } else {
             signal = Signal("")
             delegate = self
-            objc_setAssociatedObject(self, &TextSignalHandle, signal, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &TextSignalHandle, signal, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         return signal
     }
@@ -23,14 +23,14 @@ extension UISearchBar: UISearchBarDelegate {
         } else {
             signal = Signal("")
             delegate = self
-            objc_setAssociatedObject(self, &TypingSignalHandle, signal, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &TypingSignalHandle, signal, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         return signal
     }
     
     public func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        if count(searchText) > 0 {
-            typingSignal.update(.Success(Box(self.text)))
+        if searchText.characters.count > 0 {
+            typingSignal.update(.Success(searchText))
         } else {
             typingSignal.update(.Error(NSError(domain: "User", code: 404, userInfo: nil)))
         }
@@ -50,6 +50,6 @@ extension UISearchBar: UISearchBarDelegate {
     
     public func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         resignFirstResponder()
-        textSignal.update(.Success(Box(text)))
+        textSignal.update(.Success(text!))
     }
 }
